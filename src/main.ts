@@ -72,10 +72,10 @@ function main(): void {
             if (!isNaN(parseInt(answer))) {
                  // Convert our number to a digits array
                  let digitsToPrint: Digit[] = convertNumberToDigit(inputNumber);
-                 // Construct our LCD display
+                 // Display our number into LCD screen
                  printLCD(digitsToPrint);
             } else {
-                console.log('Enter a number')
+                console.log('It\'s not a number !' );
             }
 
             if (answer != 'quit') ask()

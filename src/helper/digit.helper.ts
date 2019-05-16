@@ -2,6 +2,7 @@ import { Digit } from '../types/digit';
 import { digitsList } from '../main';
 
 /**
+ *  3x3
  * . . .
  * . . .
  * . . .
@@ -9,14 +10,14 @@ import { digitsList } from '../main';
 
 
 /**
- * return a digit at string format 
+ * Return a digit at string format 
  * @param digit: Digit
  */
 export function digitToString(digit: Digit): string
 {
     let print: string = "";
 
-    // Row
+    // Digit Row
     for(let row = 0; row < 3 ; row++)
     {
         print += rowDigitToString(digit, row);
@@ -26,14 +27,14 @@ export function digitToString(digit: Digit): string
     return print;
 }
 /**
- * return 1 row about a digit to string format
+ * Return 1 row about a digit to string format
  * @param digit: Digit 
  * @param row: number
  */
 export function rowDigitToString(digit: Digit, row: number): string
  {
      let print: string = "";
-     // Column about a digit 
+     // Digit Column 
      for (let col = 0; col < digit[row].length ; col++)
      {
          print += digit[row][col];
