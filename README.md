@@ -9,6 +9,6 @@ npm install
 ```
 ***Run script***
 ```
-ts-node .\src\main.ts
+npm run start
 ```
 

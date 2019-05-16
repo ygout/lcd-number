@@ -2,7 +2,12 @@
     "compilerOptions": {
       "target": "es6", /*Specify ECMAScript target version*/
       "rootDir": "src",/*ts source direcotry*/
-      "outDir": "build" /*where to compile javascript files*/
+      "module": "commonjs",
+      "outDir": "build", /*where to compile javascript files*/
+      "alwaysStrict": true,
+      "strictNullChecks": true,
+      "noUnusedLocals": true,
+      "noImplicitAny": false,
     },
     "compileOnSave": true,
     "exclude": [

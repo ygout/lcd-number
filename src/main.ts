@@ -1,6 +1,6 @@
 import { Digits } from './types/digits';
 import { Digit } from './types/digit';
-import { convertNumberToDigit, digitToString } from './helper/digit.helper'
+import { convertNumberToDigit } from './helper/digit.helper'
 import { printLCD } from './helper/lcd.helper'
 import * as readline from 'readline';
 
