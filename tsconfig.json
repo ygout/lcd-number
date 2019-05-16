@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es6", /*Specify ECMAScript target version*/
+      "rootDir": "src",/*ts source direcotry*/
+      "outDir": "build" /*where to compile javascript files*/
+    },
+    "compileOnSave": true,
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./src/**/*",
+        "types/**/*.d.ts"
+    ]
+  }
