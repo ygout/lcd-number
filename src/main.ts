@@ -59,19 +59,19 @@ export const digitsList: Digits = {
 
 function main(): void
 {
-    console.log(digitToString(digitsList[0]));
-    console.log(digitToString(digitsList[1]));
-    console.log(digitToString(digitsList[2]));
-    console.log(digitToString(digitsList[3]));
-    console.log(digitToString(digitsList[4]));
-    console.log(digitToString(digitsList[5]));
-    console.log(digitToString(digitsList[6]));
-    console.log(digitToString(digitsList[7]));
-    console.log(digitToString(digitsList[8]));
-    console.log(digitToString(digitsList[9]));
+    // console.log(digitToString(digitsList[0]));
+    // console.log(digitToString(digitsList[1]));
+    // console.log(digitToString(digitsList[2]));
+    // console.log(digitToString(digitsList[3]));
+    // console.log(digitToString(digitsList[4]));
+    // console.log(digitToString(digitsList[5]));
+    // console.log(digitToString(digitsList[6]));
+    // console.log(digitToString(digitsList[7]));
+    // console.log(digitToString(digitsList[8]));
+    // console.log(digitToString(digitsList[9]));
 
-    // The number we want to convert to LCD number
-    let inputNumber: number = 190;
+    let inputNumber: number = 910;
+    // Convert our number to a digits array
     let digitsToPrint: Digit[] = convertNumberToDigit(inputNumber);
     // Construct our LCD display
     constructLcd(digitsToPrint);
