@@ -11,5 +11,4 @@ npm install
 ```
 ts-node .\src\main.ts
 ```
-Default value 910  
-If you need to change the value just modify ``inputNumber`` variable into main.ts
+
