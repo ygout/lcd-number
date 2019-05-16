@@ -34,7 +34,7 @@ export function rowDigitToString(digit: Digit, row: number): string
  {
      let print: string = "";
      // Column about a digit 
-     for (let col = 0; col < digit[row].length; col++)
+     for (let col = 0; col < digit[row].length ; col++)
      {
          print += digit[row][col];
      }

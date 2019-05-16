@@ -1,7 +1,8 @@
 import { Digits } from './types/digits';
 import { Digit } from './types/digit';
 import { convertNumberToDigit, digitToString } from './helper/digit.helper'
-import { constructLcd } from './helper/lcd.helper'
+import { printLCD } from './helper/lcd.helper'
+import * as readline from 'readline';
 
 export const digitsList: Digits = {
     0: {
@@ -57,25 +58,32 @@ export const digitsList: Digits = {
 }
 
 
-function main(): void
-{
-    // console.log(digitToString(digitsList[0]));
-    // console.log(digitToString(digitsList[1]));
-    // console.log(digitToString(digitsList[2]));
-    // console.log(digitToString(digitsList[3]));
-    // console.log(digitToString(digitsList[4]));
-    // console.log(digitToString(digitsList[5]));
-    // console.log(digitToString(digitsList[6]));
-    // console.log(digitToString(digitsList[7]));
-    // console.log(digitToString(digitsList[8]));
-    // console.log(digitToString(digitsList[9]));
+function main(): void {
 
-    let inputNumber: number = 910;
-    // Convert our number to a digits array
-    let digitsToPrint: Digit[] = convertNumberToDigit(inputNumber);
-    // Construct our LCD display
-    constructLcd(digitsToPrint);
+    var rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
 
+    function ask() {
+        rl.question('Enter a number: ', (answer) => {
+
+            let inputNumber: number = parseInt(answer);
+            if (!isNaN(parseInt(answer))) {
+                 // Convert our number to a digits array
+                 let digitsToPrint: Digit[] = convertNumberToDigit(inputNumber);
+                 // Construct our LCD display
+                 printLCD(digitsToPrint);
+            } else {
+                console.log('Enter a number')
+            }
+
+            if (answer != 'quit') ask()
+            else rl.close();
+        })
+    }
+
+    ask();
 
 }
 

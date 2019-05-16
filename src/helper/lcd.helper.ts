@@ -1,53 +1,32 @@
 
-import { LCD } from '../types/lcd';
-import { digitsList } from '../main';
-import { Digit } from '../types/digit';
+import { Digit, DIGIT_HEIGHT } from '../types/digit';
 import { rowDigitToString } from './digit.helper';
 
+
 /**
- * Construct our LCD screen with digits array
- * and display him
+ * Display our entire LCD screen with all digits
  * @param digits 
  */
-export function constructLcd(digits: Digit[]): void
-{
-    let nb0DigitToAdd: number = 3 - digits.length;
-    
-    for(let i = 0; i < nb0DigitToAdd; i++)
+export function printLCD(digits: Digit[]): void {
+
+    let print: string = "";
+    for(let i = 0; i < DIGIT_HEIGHT ; i++)
     {
-        digits.unshift(digitsList[0]);
+        print+= printRowLcd(digits, i);
     }
-
-    let lcd: LCD = {
-        0: digits[0],
-        1: digits[1],
-        2: digits[2]
-    };
-
-    printLCD(lcd);
-}
-/**
- * Display our entire LCD screen 3x3
- * @param lcd 
- */
-export function printLCD(lcd: LCD): void
-{
-    let print:string = printRowLcd(lcd, 0) + printRowLcd(lcd, 1) + printRowLcd(lcd, 2);
-
+    
     console.log(print);
 
 }
 /**
- * Display 1 row about our lcd screen (3x3)
- * @param lcd 
+ * Display 1 row about our lcd screen
+ * @param digits 
  * @param row 
  */
-export function printRowLcd(lcd: LCD, row:number ): string
-{
+export function printRowLcd(digits: Digit[], row: number): string {
     let print: string = "";
-    for( let digitNumber = 0; digitNumber < 3; digitNumber++)
-    {
-        let digit: Digit = lcd[digitNumber];
+    for (let digitNumber = 0; digitNumber <  digits.length; digitNumber++) {
+        let digit: Digit = digits[digitNumber];
         print += rowDigitToString(digit, row);
 
     }
