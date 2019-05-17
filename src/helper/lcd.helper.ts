@@ -24,12 +24,11 @@ export function printLCD(digits: Digit[]): void {
  * @param row 
  */
 export function printRowLcd(digits: Digit[], row: number): string {
+    
     let print: string = "";
-    for (let digitNumber = 0; digitNumber <  digits.length; digitNumber++) {
-        let digit: Digit = digits[digitNumber];
+    digits.map(digit => {
         print += rowDigitToString(digit, row);
-
-    }
+    })
     print += "\n";
     return print;
 

@@ -1,6 +1,6 @@
 import { Digits } from './types/digits';
 import { Digit } from './types/digit';
-import { convertNumberToDigit } from './helper/digit.helper'
+import { convertNumberToDigitLcd } from './helper/digit.helper'
 import { printLCD } from './helper/lcd.helper'
 import * as readline from 'readline';
 
@@ -66,20 +66,22 @@ function main(): void {
     });
 
     function ask() {
-        rl.question('Enter a number: ', (answer) => {
+        rl.question('Enter a number(Enter quit for exit): ', (answer) => {
 
-            let inputNumber: number = parseInt(answer);
-            if (!isNaN(parseInt(answer))) {
-                 // Convert our number to a digits array
-                 let digitsToPrint: Digit[] = convertNumberToDigit(inputNumber);
-                 // Display our number into LCD screen
-                 printLCD(digitsToPrint);
-            } else {
-                console.log('It\'s not a number !' );
+            if (answer === 'quit') rl.close();
+            else {
+                let inputNumber: number = parseInt(answer);
+                if (!isNaN(parseInt(answer))) {
+                    // Convert our number to a digits array
+                    let digitsToPrint: Digit[] = convertNumberToDigitLcd(inputNumber);
+                    // Display our number into LCD screen
+                    printLCD(digitsToPrint);
+                } else {
+                    console.log('It\'s not a number !');
+                }
+                ask();
             }
 
-            if (answer != 'quit') ask()
-            else rl.close();
         })
     }
 

@@ -1,4 +1,4 @@
-import { Digit } from '../types/digit';
+import { Digit, DIGIT_HEIGHT } from '../types/digit';
 import { digitsList } from '../main';
 
 /**
@@ -18,7 +18,7 @@ export function digitToString(digit: Digit): string
     let print: string = "";
 
     // Digit Row
-    for(let row = 0; row < 3 ; row++)
+    for(let row = 0; row < DIGIT_HEIGHT ; row++)
     {
         print += rowDigitToString(digit, row);
         print += "\n";
@@ -46,15 +46,12 @@ export function rowDigitToString(digit: Digit, row: number): string
  * Convert a number to a digit format
  * @param number 
  */
- export function convertNumberToDigit(number: number): Digit[]
+ export function convertNumberToDigitLcd(number: number): Digit[]
 {
-    let digits: Digit[] = [];
-    let numberChar: string = number.toString();
-    for(let i = 0; i < numberChar.length; i++)
-    {
-        let digit: Digit = digitsList[parseInt(numberChar[i])];
-        digits.push(digit);
-    }
-
+    
+    const numberAsString: string = number.toString();
+    const digitAsString = numberAsString.split('');
+    let digits: Digit[] =  digitAsString.map(digitString => digitsList[parseInt(digitString)]);
+    
     return digits;
 }
